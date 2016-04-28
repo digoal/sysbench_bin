@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <time.h>
 #include <stdint.h>
@@ -30,6 +31,9 @@ int main(int argc, char *argv[])
     }
     max_value = atoi(argv[1]);
     gettimeofday(&tpstart,NULL);
+    memset( &r1, 0, sizeof( r1 ) );
+    memset( &r2, 0, sizeof( r2 ) );
+
     initstate_r(tpstart.tv_usec,rand_state1,sizeof(rand_state1),&r1);
     srandom_r(tpstart.tv_usec, &r1);
     gettimeofday(&tpstart,NULL);
